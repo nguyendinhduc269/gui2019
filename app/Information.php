@@ -11,7 +11,7 @@ class Information extends Model
     protected $table = 'information';
 
     protected $fillable = [
-    	'locationInfor', 'date', 'company_name', 'infor', 'written_test', 'written_test_content', 'interview', 'industry', 'country', 'recruited_occupation', 'qualification', 'age_limit', 'grade', 'graduate', 'condidate', 'job_vote', 'part_time_job', 'intership','url',
+    	'location_info', 'date', 'company_name', 'infor', 'written_test', 'written_test_content', 'interview', 'industry', 'country', 'recruited_occupation', 'qualification', 'age_limit', 'grade', 'graduate', 'condidate', 'job_vote', 'part_time_job', 'intership','url','logo',
     ];
     //public $timestamps = false;
     public function students(){

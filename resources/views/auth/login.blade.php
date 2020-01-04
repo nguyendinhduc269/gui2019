@@ -15,7 +15,7 @@
             @endforeach
           </ul>
         </div>
-        @endif
+    @endif
     <div class="col-md-4 text-center col-sm-6 col-xs-6">
 
         <form class="login-form" method="POST" action="{{ route('login') }}">

@@ -167,7 +167,7 @@
                                     </tr>
                                     <tr>
                                     <td>説明会場所</td>
-                                    <td>{{ $rank->locationInfo }}</td>
+                                    <td>{{ $rank->location_info }}</td>
                                     </tr>
                                     <tr>
                                     <td>開催日</td>

@@ -40,14 +40,14 @@
                      <tr>
                         <td>{{$loop->index + 1}}</td>
                         <td> {{ $infor->company_name }}</td>
-                        <td> {{ $infor->locationInfo }}</td>
+                        <td> {{ $infor->location_info }}</td>
                         <td> {{ $infor->date }}</td>
                         <td>
                             <form onsubmit="return confirm('本当に削除しますか?')" action="{{route('cancel')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="infor_id" value="{{$infor->id}}">
                                 <input type="hidden" name="student_id" value="{{Auth::user()->id}}">
-                                <button type="submit" class="btn btn-danger">キャンセル</button>
+                                <button type="submit" class="btn btn-danger">削除</button>
                             </form>
                         </td>
                     </tr>

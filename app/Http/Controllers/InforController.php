@@ -6,6 +6,10 @@ use App\Information;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Traits\UploadTrait;
+use App\Imports\ImportCSV;
+//use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UploadCSV;
 
 class InforController extends Controller
 {
@@ -62,17 +66,27 @@ class InforController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+            'company_name'=>'required',
+            'locationInfo'=>'required',
+            'date'=>'required'
+         ]);
+         
+         if(Information::where('company_name',$request->get('company_name'))!=NULL){
+            $infors = Information::where('company_name',$request->get('company_name'))->get();
+            foreach($infors as $temp){
+                if($temp->date == $request->get('date') && $temp->location_info == $request->get('locationInfo'))
+                {
+                    return back()->with('danger', 'この説明会が存在します');
 
-
-        // $request->validate([
-        //     'first_name'=>'required',
-        //     'last_name'=>'required',
-        //     'email'=>'required'
-        // ]);
+                }
+                $logo = $temp->logo ;
+            }    
+        }
 
         $infor = new Information([
             'company_name' =>  $request->get('company_name'),
-            'locationInfo' => $request->get('locationInfo'),
+            'location_info' => $request->get('locationInfo'),
             'date' => $request->get('date'),
             'recruited_occupation' => $request->get('recruited_occupation'),
             'written_test' => $request->get('written_test'),
@@ -88,9 +102,12 @@ class InforController extends Controller
             'intership' => $request->get('intership'),
             'condidate' => $request->get('condidate'),
             'url' => $request->get('url'),
+            'logo' => $logo,
+            
+        
         ]);
         $infor->save();
-        return redirect('/admin/infor')->with('success', '追加完成した！');
+        return back()->with('success', '追加完成した！');
 
     }
 
@@ -137,7 +154,7 @@ class InforController extends Controller
 
        $infor = Information::find($id);
        $infor->company_name =  $request->get('company_name');
-       $infor->locationInfo = $request->get('locationInfo');
+       $infor->location_info = $request->get('locationInfo');
        $infor->date = $request->get('date');
        $infor->recruited_occupation = $request->get('recruited_occupation');
        $infor->written_test = $request->get('written_test');
@@ -154,25 +171,25 @@ class InforController extends Controller
        $infor->condidate = $request->get('condidate');
        $infor->url = $request->get('url');
         // Check if a logo image has been uploaded
-       if ($request->has('logo')) {
+       if ($request->has('logo')) 
+       {
             // Get image file
-        $image = $request->file('logo');
-            // Make a image name based on user name and current timestamp
-        $name = str_slug($request->input('company_name')).'_'.time();
-            // Define folder path
-        $folder = '/uploads/images/logo/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-        $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-            // Upload image
-        $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-        $infor->logo = $filePath;
+            $image = $request->file('logo');
+                // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('company_name')).'_'.time();
+                // Define folder path
+            $folder = '/uploads/images/logo/';
+                // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+                // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+                // Set user profile image path in database to filePath
+            $infor->logo = $filePath;
+       }
+        $infor->save();
 
+        return redirect('/admin/infor')->with('success', '更新した！');
     }
-    $infor->save();
-
-    return redirect('/admin/infor')->with('success', '更新した！');
-}
 
     /**
      * Remove the specified resource from storage.
@@ -187,5 +204,15 @@ class InforController extends Controller
         $infor->delete();
 
         return redirect('/admin/infor')->with('success', '削除しました!');
+    }
+
+    // Import CSV
+
+    public function import(UploadCSV $request)
+    {
+        //Excel::import
+        (new ImportCSV)->import(request()->file('fileCSV'));
+        
+        return back()->with('success', 'データをインポート完了！');
     }
 }

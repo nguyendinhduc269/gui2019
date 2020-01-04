@@ -35,6 +35,8 @@ Route::middleware(['admin'])->prefix('admin')->group(function(){
 	Route::resource('book', 'BookController');
 	Route::post('destroy','BookController@destroy')->name('destroy');
 	
+	Route::post('import', 'InforController@import')->name('import');
+	
 });
 
 Route::get('postsearch','SearchController@searchName')->name('postsearch');

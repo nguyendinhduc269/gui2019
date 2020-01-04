@@ -52,7 +52,7 @@
                           <p><span>会社名</span>: {{ $item->company_name }} </p>
                         </div>
                         <div class="bio-row">
-                          <p><span>説明会場所</span>: {{ $item->locationInfo }}</p>
+                          <p><span>説明会場所</span>: {{ $item->location_info }}</p>
                         </div>
                         <div class="bio-row">
                           <p><span>開催日</span>: {{ $item->date }}</p>

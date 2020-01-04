@@ -78,7 +78,7 @@
 
         <td rowspan="{{count($infor->students) + 1}}">{{$loop->index + 1}}</td>
         <td rowspan="{{count($infor->students) + 1}}">{{$infor->company_name}}</td>
-        <td rowspan="{{count($infor->students) + 1}}">{{$infor->locationInfo}}</td>
+        <td rowspan="{{count($infor->students) + 1}}">{{$infor->location_info}}</td>
         <td rowspan="{{count($infor->students) + 1}}">{{$infor->date}}</td>
       </tr>
       @foreach($infor->students as $student)

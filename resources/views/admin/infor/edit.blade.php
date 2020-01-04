@@ -38,7 +38,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="locationInfo">説明会場所:</label>
-                    <input type="text" class="form-control" name="locationInfo" value={{ $infor->locationInfo }} >
+                    <input type="text" class="form-control" name="locationInfo" value={{ $infor->location_info }} >
                 </div>
             </div>
             <div class="form-row">
@@ -59,6 +59,7 @@
                 <div class="form-group col-md-6">
                     <label for="written_test">筆記試験:</label>
                     <select class="form-control input-sm m-bot15" name="written_test">
+                        <option value="{{ $infor->written_test}}" {{( $infor->written_test == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->written_test}}" {{( $infor->written_test == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->written_test}}" {{( $infor->written_test == '無し') ? 'selected' : '' }}>無し</option>
                         <option value="{{ $infor->written_test}}" {{( $infor->written_test == '不明') ? 'selected' : '' }}>不明</option>
@@ -69,6 +70,7 @@
                 <div class="form-group col-md-6">
                     <label for="written_test_content">筆記試験内容:</label>
                     <select class="form-control input-sm m-bot15" name="written_test_content">
+                        <option value="{{ $infor->written_test_content}}" {{( $infor->written_test_content == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->written_test_content}}" {{( $infor->written_test_content == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->written_test_content}}" {{( $infor->written_test_content == '無し') ? 'selected' : '' }}>無し</option>
                         <option value="{{ $infor->written_test_content}}" {{( $infor->written_test_content == '不明') ? 'selected' : '' }}>不明</option>
@@ -111,8 +113,9 @@
                 <div class="form-group col-md-6">
                     <label for="grade">対象学年:</label>
                     <select class="form-control input-sm m-bot15" name="grade">
-                        <option value="{{ $infor->grade}}" {{( $infor->grade == '4年生') ? 'selected' : '' }}>4年生</option>
-                        <option value="{{ $infor->grade}}" {{( $infor->grade == '３年生も可') ? 'selected' : '' }}>３年生も可</option>
+                        <option value="{{ $infor->grade}}" {{( $infor->grade == '') ? 'selected' : '' }}>選ぶ</option>
+                        <option value="{{ $infor->grade}}" {{( $infor->grade == '4') ? 'selected' : '' }}>4年生</option>
+                        <option value="{{ $infor->grade}}" {{( $infor->grade == '3') ? 'selected' : '' }}>３年生も可</option>
                     </select>
                 </div>
             </div>
@@ -120,6 +123,7 @@
                 <div class="form-group col-md-6">
                     <label for="graduate">既卒者受け入れ:</label>
                     <select class="form-control input-sm m-bot15" name="graduate">
+                        <option value="{{ $infor->graduate}}" {{( $infor->graduate == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->graduate}}" {{( $infor->graduate == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->graduate}}" {{( $infor->graduate == '無し') ? 'selected' : '' }}>無し</option>
                     </select>
@@ -129,6 +133,7 @@
                 <div class="form-group col-md-6">
                     <label for="part_time_job">アルバイト受け入れ:</label>
                     <select class="form-control input-sm m-bot15" name="part_time_job">
+                        <option value="{{ $infor->part_time_job}}" {{( $infor->part_time_job == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->part_time_job}}" {{( $infor->part_time_job == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->part_time_job}}" {{( $infor->part_time_job == '無し') ? 'selected' : '' }}>無し</option>
                     </select>
@@ -138,6 +143,7 @@
                 <div class="form-group col-md-6">
                     <label for="intership">インターシップ:</label>
                     <select class="form-control input-sm m-bot15" name="intership">
+                        <option value="{{ $infor->intership}}" {{( $infor->intership == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->intership}}" {{( $infor->intership == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->intership}}" {{( $infor->intership == '無し') ? 'selected' : '' }}>無し</option>
                     </select>
@@ -147,6 +153,7 @@
                 <div class="form-group col-md-6">
                     <label for="condidate">卒業内定者:</label>
                     <select class="form-control input-sm m-bot15" name="condidate">
+                        <option value="{{ $infor->condidate}}" {{( $infor->condidate == '') ? 'selected' : '' }}>選ぶ</option>
                         <option value="{{ $infor->condidate}}" {{( $infor->condidate == '有り') ? 'selected' : '' }}>有り</option>
                         <option value="{{ $infor->condidate}}" {{( $infor->condidate == '無し') ? 'selected' : '' }}>無し</option>
                     </select>

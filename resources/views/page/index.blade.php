@@ -66,7 +66,7 @@
                         </tr>
                         <tr>
                           <td>説明会場所</td>
-                          <td>{{ $item->locationInfo }}</td>
+                          <td>{{ $item->location_info }}</td>
                         </tr>
                         <tr>
                           <td>開催日</td>

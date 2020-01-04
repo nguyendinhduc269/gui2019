@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required|string|max:50',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:8|confirmed',
-            'student_code' =>'required|string|regex:/([1-9]0?)[0-9](TE|te)\B[0-9]+[1-9]/m|unique:users',
+            'student_code' =>'required|string|regex:/([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[1-9]/m|unique:users',
             'seminar_room' =>'string',
             'grade' => 'required|string',
         ];

@@ -2,13 +2,14 @@
 
 @section('style')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+<link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
 @endsection
 
 @section('main')
 <div class="row">
+  
  <div class="col-sm-8 offset-sm-2">
-  <h1 class="display-3">会社追加</h1>
+  <h1 class="display-3">会社の説明会追加</h1>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -18,6 +19,16 @@
         @endforeach
       </ul>
     </div><br />
+    @endif
+    @if(session()->get('success'))
+    <div class="alert alert-success">
+      {{ session()->get('success') }}  
+    </div>
+    @endif
+    @if(session()->get('danger'))
+    <div class="alert alert-danger">
+      {{ session()->get('danger') }}  
+    </div>
     @endif
     <form method="post" action="{{ route('infor.store')}}">
       @csrf
@@ -35,7 +46,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="locationInfo">会社ホームページ:</label>
+          <label for="url">会社ホームページ:</label>
           <input type="text" class="form-control" name="url">
         </div>
       </div>
@@ -55,9 +66,10 @@
         <div class="form-group col-md-6">
           <label for="written_test">筆記試験:</label>
           <select class="form-control input-sm m-bot15" name="written_test">
-            <option>有り</option>
-            <option>無し</option>
-            <option>不明</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select> 
         </div>
       </div>
@@ -65,10 +77,10 @@
         <div class="form-group col-md-6">
           <label for="written_test_content">筆記試験内容:</label>
           <select class="form-control input-sm m-bot15" name="written_test_content">
-            <option>有り</option>
-            <option>無し</option>
-            <option >不明</option>
-            <option >SPI検査</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select> 
         </div>
       </div>
@@ -106,8 +118,9 @@
         <div class="form-group col-md-6">
           <label for="grade">対象学年:</label>
           <select class="form-control input-sm m-bot15" name="grade">
-            <option>4年生</option>
-            <option>３年生も可</option>
+            <option value="">選ぶ</option>
+            <option value=4>4年生</option>
+            <option value=3>3年生も可</option>
           </select>
         </div>
       </div>
@@ -115,8 +128,10 @@
         <div class="form-group col-md-6">
           <label for="graduate">既卒者受け入れ:</label>
           <select class="form-control input-sm m-bot15" name="graduate">
-            <option>有り</option>
-            <option>無し</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select>
         </div>
       </div>
@@ -124,8 +139,10 @@
         <div class="form-group col-md-6">
           <label for="part_time_job">アルバイト受け入れ:</label>
           <select class="form-control input-sm m-bot15" name="part_time_job">
-            <option>有り</option>
-            <option>無し</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select>
         </div>
       </div>
@@ -133,8 +150,10 @@
         <div class="form-group col-md-6">
           <label for="intership">インターシップ:</label>
           <select class="form-control input-sm m-bot15" name="intership">
-            <option>有り</option>
-            <option>無し</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select>
         </div>
       </div>
@@ -142,8 +161,10 @@
         <div class="form-group col-md-6">
           <label for="condidate">卒業内定者:</label>
           <select class="form-control input-sm m-bot15" name="condidate">
-            <option>有り</option>
-            <option>無し</option>
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
           </select>
         </div>
       </div>

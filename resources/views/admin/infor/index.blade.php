@@ -8,6 +8,15 @@
   
   <div class="col-lg-12">
     <div class="col-sm-12">
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+    @endif
       @if(session()->get('success'))
       <div class="alert alert-success">
         {{ session()->get('success') }}  
@@ -16,12 +25,21 @@
     </div>
     <section class="panel">
     <div class="row">
-     <div class="col-sm-2">
-      <h1 class="display-3">会社追加</h1>
-      <div> 
-        <a style="margin: 19px;" href="{{ route('infor.create')}}" class="btn btn-primary">会社追加</a>
-      </div> 
-    </div> 
+      <div class="col-lg-12">
+        <h1 class="display-3">会社の説明会追加</h1>
+        <div class="col-sm-2" > 
+          <a href="{{ route('infor.create')}}" class="btn btn-primary">会社追加</a>
+        </div> 
+        <div class="col-sm-9">
+          <form class="form-inline" action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="file" name="fileCSV" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">インポート説明会データ</button>
+          </form>
+        </div>
+      </div>
   </div>
   </section>
   <section class="panel">
@@ -75,12 +93,11 @@
       <tr>
         <td>{{$new->company_name}}</td>
         <td>{{$new->date}}</td>
-        <td>{{$new->locationInfo}}</td>
+        <td>{{$new->location_info}}</td>
         <td>{{$new->industry}}</td>
         <td>{{$new->recruited_occupation}}</td>
         <td>
           <div class="btn-group">
-           
             <form class="form-inline" onsubmit="return confirm('本当に削除しますか?');" action="{{ route('infor.destroy', $new->id)}}" method="post">
               @csrf
               @method('DELETE')
