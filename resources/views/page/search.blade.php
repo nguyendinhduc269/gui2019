@@ -10,9 +10,9 @@
         @foreach($infors as $item)
         <div class="col-md-4 text-center col-sm-6 col-xs-6">
             <div class="thumbnail product-box">
-                <a href="{{$item->url}}"><img class="img-fluid" src="{{$item->logo}}" alt="" /></a>
+                <a href="{{$item->url}}" target="_blank"><img class="img-fluid" src="{{$item->logo}}" alt="" /></a>
                 <div class="caption">
-                    <h3><a href="{{$item->url}}">{{$item->company_name}}</a></h3>
+                    <h3><a href="{{$item->url}}" target="_blank">{{$item->company_name}}</a></h3>
                     <p>開催日 : <strong>{{$item->date}}</strong>  </p>
                     <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inforModal{{(Auth::check()) ? $item->id :'signup'}}">
                   詳しく

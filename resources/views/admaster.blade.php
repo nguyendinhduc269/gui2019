@@ -86,7 +86,7 @@
                   </li>
                   @if(Auth::user()->isAdmin == 1)
                   <li>
-                    <a href="/admin"><i class="icon_lock-open"></i>管理ページ</a>
+                    <a href="{{Route('adminIndex')}}"><i class="icon_lock-open"></i>管理ページ</a>
                   </li>
                   @endif
                   <li>
@@ -184,7 +184,7 @@
               </div>
 
               <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+                <li><i class="fa fa-home"></i><a href="{{Route('home')}}">Home</a></li>
             <!-- <li><i class="fa fa-bars"></i>Pages</li>
               <li><i class="fa fa-square-o"></i>Pages</li> -->
             </ol>
