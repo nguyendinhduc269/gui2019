@@ -36,6 +36,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function(){
 	Route::post('destroy','BookController@destroy')->name('destroy');
 	
 	Route::post('import', 'InforController@import')->name('import');
+	Route::get('export', 'InforController@export')->name('export');
 	
 });
 

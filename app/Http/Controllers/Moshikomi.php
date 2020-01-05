@@ -27,7 +27,7 @@ class Moshikomi extends Controller
             }
         }  
     }
-    if ($infor->date < Carbon::now()) {
+    if (Carbon::parse($infor->date) < Carbon::now()) {
         # code...
         return redirect('/')->with('danger', '失敗しました！　この説明会はすぎしています！');
 

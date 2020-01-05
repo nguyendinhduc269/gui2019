@@ -24,7 +24,7 @@ class ProfileController extends Controller
 	{
 		$infors = Information::whereHas('students', function (Builder $query) {
 			$query->where('students_id', '=', Auth::user()->id);
-		})->get();
+		})->orderBy('date','desc')->get();
 		$ranks = Information::withCount('students')
 	      ->orderBy('students_count', 'desc')->limit(1)->get();
 	    $lists = Information::has('students')->withCount('students')->orderBy('students_count','desc')->get();

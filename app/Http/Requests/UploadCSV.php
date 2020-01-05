@@ -25,18 +25,17 @@ class UploadCSV extends FormRequest
     public function rules()
     {
         return [
-            'fileCSV' => 'required|file|max:5120|mimes:xls,xlsx,csv',
+            'fileimport'=>'required|max:50000|mimes:csv,xls,xlsx'
         ];
     }
     //
 
-    public function messages(){
+    public function messages(){ 
 
         return[
-            'fileCSV.required' => 'ファイルを選択してください',
-            'fileCSV.file' => 'ファイルを選択してください',
-            'fileCSV.max' => '５Mb以下のファイルを選択してください',
-            'fileCSV.mimes' => 'CSVのファイルを選択してください',
+            'fileimport.required' => 'ファイルを選択してください',
+            'fileimport.max' => '５Mb以下のファイルを選択してください',
+
         ];
 
     }

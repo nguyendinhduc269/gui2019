@@ -73,7 +73,7 @@ return [
             'enclosure'              => '"',
             'escape_character'       => '\\',
             'contiguous'             => false,
-            'input_encoding'         => 'Shift_JIS',
+            'input_encoding'         => 'UTF-8',
         ],
     ],
 
