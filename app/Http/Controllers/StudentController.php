@@ -124,7 +124,11 @@ class StudentController extends Controller
         $student = User::find($id);
         $student->student_code =  $request->get('student_code');
         $student->name = $request->get('name');
-        $student->password =  hash::make($request->get('password'));
+        if($request->get('password')!= $student->password){
+            
+            $student->password =  hash::make($request->get('password'));
+
+        }
         $student->email = $request->get('email');
         $student->seminar_room =  $request->get('seminar_room');
         $student->grade = $request->get('grade');
