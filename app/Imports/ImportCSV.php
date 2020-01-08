@@ -19,13 +19,27 @@ class ImportCSV implements ToModel, WithHeadingRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+    public function getCsvSettings(): array
+    {
+        return [
+            'input_encoding' => 'UTF-8'
+        ];
+    }
+    public function rules(): array
+    {
+        return [
+            'company_name'  =>  'required',
+            'locationInfo'  =>  'required',
+            'date'          =>  'required'
+        ];
+    }
     
     public function model(array $row)
     {
         return new Information([
 
             'company_name'          => $row['company_name'],
-            'location_info'          => $row['locationinfo'],
+            'location_info'         => $row['locationinfo'],
             'date'                  => $row['date'],
             'info'                  => $row['info'],
             'recruited_occupation'  => $row['recruited_occupation'],
@@ -50,19 +64,6 @@ class ImportCSV implements ToModel, WithHeadingRow
     //     return 3;
     // }
 
-    public function getCsvSettings(): array
-    {
-        return [
-            'input_encoding' => 'UTF-8'
-        ];
-    }
-    public function rules(): array
-    {
-        return [
-            'company_name'  =>  'required',
-            'locationInfo'  =>  'required',
-            'date'          =>  'required'
-        ];
-    }
+    
 
 }
