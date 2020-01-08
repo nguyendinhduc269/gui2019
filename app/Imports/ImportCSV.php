@@ -25,7 +25,7 @@ class ImportCSV implements ToModel, WithHeadingRow
         return new Information([
 
             'company_name'          => $row['company_name'],
-            'location_info'          => $row['locationinfo'],
+            'location_info'         => $row['locationinfo'],
             'date'                  => $row['date'],
             'info'                  => $row['info'],
             'recruited_occupation'  => $row['recruited_occupation'],

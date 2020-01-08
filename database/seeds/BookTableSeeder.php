@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BookTableSeeder extends Seeder
 {
@@ -14,9 +16,9 @@ class BookTableSeeder extends Seeder
     {
         
 
-        \DB::table('book')->delete();
+        DB::table('book')->delete();
         
-        \DB::table('book')->insert(array (
+        DB::table('book')->insert(array (
             0 => 
             array (
                 'id' => 100,

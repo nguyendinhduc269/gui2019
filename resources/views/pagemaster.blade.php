@@ -34,7 +34,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-
                 <ul class="nav navbar-nav navbar-right">
                     @guest
                     <li><a href="{{ route('login') }}">{{ __('ログイン') }}</a></li>
@@ -42,13 +41,13 @@
                     <li><a href="{{ route('register') }}">{{ __('登録') }}</a></li>
                     @endif
                     @else
-                    <li class="dropdown">
+                    <li class="dropdown nav navbar-nav navbar-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="{{asset(Auth::user()->picture)}}" style="max-width: 50px; max-width:50px">{{ Auth::user()->name }}さん<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('profile')}}"><strong>会員情報 </strong></a></li>
+                            <li><a href="{{ route('profile')}}"><strong> {{ __('会員情報') }}</strong></a></li>
                             <li class="divider"></li>
                             @if(Auth::user()->isAdmin == 1)
-                            <li><a href="{{Route('adminIndex')}}"><strong>管理ページ</strong>
+                            <li><a href="{{Route('adminIndex')}}"><strong>{{ __('管理ページ') }}</strong>
                             </a></li>
                             @endif
                             <li class="divider"></li>

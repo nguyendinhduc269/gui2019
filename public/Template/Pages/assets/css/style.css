@@ -74,10 +74,12 @@ color: #050505;
 background-color: #FFFFFF;
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-color: #000;
+color: #FFFFFF;
+
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
-color: #000;
+color: #FFFFFF;
+
 }
 /*=======================================
   BOOTSTRAP ADJUSTMENTS
