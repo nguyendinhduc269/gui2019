@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Student;
-use App\Sermina;
-use App\Information;
+use App\Models\Student;
+use App\Models\Sermina;
+use App\Models\Information;
 // use Illuminate\Http\Request;
 // use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Requests\RegisterRequest;
+
 
 class RegisterController extends Controller
 {
@@ -69,7 +70,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'student_code' =>['required','string','regex:/([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[1-9]/m','unique:students'],
             'seminar_room' =>['string'],
-            'grade' => ['required','string'],
+            'grade' => ['string'],
         ]);
     }
 

@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Pages;
 
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
-use App\Information;
+use App\Models\Information;
 use Illuminate\Database\Eloquent\Builder;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+
 
 class ProfileController extends Controller
 {
@@ -28,16 +30,13 @@ class ProfileController extends Controller
 		$ranks = Information::withCount('students')
 	      ->orderBy('students_count', 'desc')->limit(1)->get();
 	    $lists = Information::has('students')->withCount('students')->orderBy('students_count','desc')->get();
-
 		return view('page.profile',compact('infors','ranks','lists'));
 	}
 
 	public function cancelmoshikomi(Request $request)
     {
         $infor = Information::find( $request->get('infor_id'));
-
         $infor->students()->detach($request->get('student_id'));
-
     return redirect()->back()->with('success', '削除しました！');
     }
 
@@ -56,7 +55,6 @@ class ProfileController extends Controller
 		$user = User::findOrFail(auth()->user()->id);
         // Set user name
 		$user->name = $request->input('name');
-
         // Check if a profile image has been uploaded
 		if ($request->has('picture')) {
             // Get image file
@@ -74,9 +72,7 @@ class ProfileController extends Controller
 		}
 
     User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-
 		$user->save();
-
 		return redirect()->back()->with('success','会員情報更新しました！');
 	}
 }

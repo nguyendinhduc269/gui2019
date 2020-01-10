@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
 use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Sermina;
+use App\Models\Sermina;
+use App\Http\Controllers\Controller;
+
 
 class StudentController extends Controller
 {
@@ -21,16 +23,11 @@ class StudentController extends Controller
     {
         //
         $serminas = Sermina::all();
-
-
         $students = new User;
-
         $queries = [];
-
         $columns = [
             'seminar_room',
         ];
-
     foreach ($columns as $column) {
         if($request->has($column)){
             $students = $students->where($column, $request->get($column));
@@ -55,8 +52,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.student.create');
+        $sermina = Sermina::all();
+        return view('admin.student.create', compact('sermina'));
     }
 
     /**
@@ -67,6 +64,13 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255','unique:students'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'student_code' =>['required','string','regex:/([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[1-9]/m','unique:students'],
+         ]);
+
         //
         $students = new User([
             'student_code' =>  $request->get('student_code'),

@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Pages;
 
-use App\Information;
+use App\Models\Information;
 use Illuminate\Http\Request;
-use App\Sermina;
+use App\Models\Sermina;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 
 class PageController extends Controller
 {

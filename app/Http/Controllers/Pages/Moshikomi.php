@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
-use App\Book;
-use App\Information;
-use App\User;
+use App\Models\Book;
+use App\Models\Information;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+
 
 class Moshikomi extends Controller
 {

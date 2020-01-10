@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
 use Illuminate\Http\Request;
-use App\Sermina;
+use App\Models\Sermina;
+use App\Http\Controllers\Controller;
+
 
 class SerminaController extends Controller
 {

@@ -42,7 +42,8 @@
                     <label for="student_code" class="col-md-4 col-form-label text-md-right">{{ __('学生番号') }}</label>
 
                     <div class="col-md-6">
-                        <input id="student_code" type="text" class="form-control @error('student_code') is-invalid @enderror" name="student_code" value="{{ old('student_code') }}" required autocomplete="student_code" autofocus>
+                        <input id="student_code" class="form-control type="text" onkeyup="this.value = this.value.toUpperCase();">
+                        <input  type="text" class="form-control @error('student_code') is-invalid @enderror" name="student_code" value="{{ old('student_code') }}" required autocomplete="student_code" autofocus>
 
                         @error('student_code')
                         <span class="alert-danger" role="alert">
@@ -54,17 +55,13 @@
 
                 <div class="form-group row">
                     <label for="seminar_room" class="col-md-4 col-form-label text-md-right">{{ __('研究室') }}</label>
-
                     <div class="col-md-6">
                         <select class="form-control" name="seminar_room">
-
                             <option>研究室選択</option>
-
                             @foreach ($sermina as $select)
                             <option value="{{ $select->serminaName }}"> {{ $select->serminaName }}</option>
                             @endforeach    
                         </select>
-
                         @error('seminar_room')
                         <span class="alert-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -72,7 +69,6 @@
                         @enderror
                     </div> 
                 </div>
-
                 <div class="form-group row">
                     <label for="grade" class="col-md-4 col-form-label text-md-right">{{ __('年生') }}</label>
 

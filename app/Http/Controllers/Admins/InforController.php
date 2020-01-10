@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
-use App\Information;
+use App\Http\Controllers\Controller;
+use App\Models\Information;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Traits\UploadTrait;
-use App\Imports\ImportCSV;
+use App\Models\Traits\UploadTrait;
+//use App\Models\Imports\ImportCSV;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 //use App\Http\Requests\UploadCSV;
-use App\Exports\TemplateCSV;
+//use App\Exports\TemplateCSV;
 use Illuminate\Http\Response;
 
 class InforController extends Controller

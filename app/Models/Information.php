@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,6 +15,6 @@ class Information extends Model
     ];
     //public $timestamps = false;
     public function students(){
-    	return $this->belongstoMany('App\User','Book','information_id','students_id')->withTimestamps();
+    	return $this->belongstoMany('App\Models\User','Book','information_id','students_id')->withTimestamps();
     }
 }

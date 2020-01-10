@@ -18,57 +18,89 @@
       @csrf
      <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="name">名前:</label>
-        <input type="text" class="form-control" name="name">
+        <label for="name" class="col-md-4 col-form-label text-md-right">名前:</label>
+        <input type="text" class="form-control" name="name" required>
+        @error('name')
+          <span class="alert-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+          @enderror
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="student_code">学生番号:</label>
-        <input type="text" class="form-control" name="student_code">
+        <label for="student_code" class="col-md-4 col-form-label text-md-right">学生番号:</label>
+        <input type="text" class="form-control" name="student_code" required>
+        @error('student_code')
+          <span class="alert-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+          @enderror
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="password">パスワード:</label>
-        <input type="password" class="form-control" name="password">
+        <label for="password" class="col-md-4 col-form-label text-md-right">パスワード:</label>
+        <input id="password" type="password" class="form-control" name="password" required>
+        @error('password')
+          <span class="alert-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="password-confirm" class="col-md-4 col-form-label text-md-right">パスワード確認</label>
+      <div class="col-md-6">
+          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+          @error('password_confirmation')
+          <span class="alert-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+      </div>
+  </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email" class="col-md-4 col-form-label text-md-right">メール:</label>
+        <input id="email" type="email" class="form-control" name="email">
+        @error('email')
+          <span class="alert-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+          @enderror
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="email">メール:</label>
-        <input type="email" class="form-control" name="email">
+        <label for="seminar_room" class="col-md-4 col-form-label text-md-right">研究室:</label>
+        <select class="form-control" name="seminar_room">
+          <option>研究室選択</option>
+          @foreach ($sermina as $select)
+          <option value="{{ $select->serminaName }}"> {{ $select->serminaName }}</option>
+          @endforeach    
+      </select>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="seminar_room">研究室:</label>
-        <select class="form-control input-sm m-bot15" name="seminar_room">
-          <option>有り</option>
-          <option>無し</option>
-          <option>不明</option>
-        </select> 
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="grade">年生:</label>
+        <label for="grade" class="col-md-4 col-form-label text-md-right">年生:</label>
         <select class="form-control input-sm m-bot15" name="grade">
-          <option>1年</option>
-          <option>２年</option>
-          <option>３年</option>
-          <option>４年</option>
+          <option value="1">1年</option>
+          <option value="2">２年</option>
+          <option value="3">３年</option>
+          <option value="4">４年</option>
         </select> 
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="isAdmin">レベル:</label>
-          <input type="radio" name="isAdmin" value="">一般 
+      <div class="form-group col-md-6 form-inline">
+        <label for="isAdmin" class="col-md-4 col-form-label text-md-right">レベル:</label>
+          <input type="radio" name="isAdmin" value="" checked>一般 
           <input type="radio" name="isAdmin" value=1>　管理者
         </div>
       </div>
-      <div class="text-center">
+      <div class="form-row text-center">
         <button type="submit" class="btn btn-primary">追加</button>
         <a style="margin: 19px;" href="{!! url('admin/student') !!}" class="btn btn-danger">キャンセル</a>
       </div>

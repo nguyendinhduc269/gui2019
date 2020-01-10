@@ -7,8 +7,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Information;
+use App\Models\User;
+use App\Models\Information;
+use App\Models\Student;
 
 
 
@@ -56,10 +57,8 @@ class LoginController extends Controller
     public function username()
 {
      $login = request()->input('username');
-
      $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'student_code';
      request()->merge([$field => $login]);
-
      return $field;
 }
 
@@ -68,50 +67,27 @@ class LoginController extends Controller
         $username = $request->get($this->username(), '');
         $usernameField = 'email';
         preg_match(self::EMAIL_REGEX, $username, $matches);
-        // Nếu không phải địa chỉ email thì sẽ có thể là số điện thoại
+        // Eメールじゃない場合は学生番号可能性
         if (empty($matches)) {
             $usernameField = 'student_code';
             $username = $this->validateStudentCode($username);
         }
-
         return [
             $usernameField => $username,
             'password' => $request->get('password'),
         ];
     }
-
     protected function validateStudentCode($username)
     {
         preg_match(self::STUDENT_CODE_REGEX, $username, $matches);
-
-        if ($username) {
-            return $username;
+        if (empty($matches)) {
+            throw ValidationException::withMessages([
+                $this->username() => [trans('auth.failed')],
+            ]);
         }
-
-        // nếu không phải số điện thoại thì trả về thông báo lỗi
-        throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
-        ]);
+        return $username;
+        
     }
-
-    // public function authenticate(Request $request){
-    //     $request->validate([
-    //         'password' => 'required', 
-    //         'student_code' =>'required',
-    //     ]);
-
-    //     $credentials = $request->only('student_code', 'password');
-
-    //     if(Auth::attempt($credentials,$request->has('remember'))){
-    //         return redirect()->intended('/');
-    //     }
-
-    //     if(Auth::viaRemember()){
-    //         return redirect()->intended('/');
-    //     }
-    //     return $this->sendFailedLoginResponse($request);
-
-    // }
 
 
 

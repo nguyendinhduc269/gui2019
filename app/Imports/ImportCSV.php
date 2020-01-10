@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Information;
+use App\Model\Information;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Validation\Rule;
