@@ -18,6 +18,7 @@ Route::get('/', 'Pages\PageController@index')->name('home');
 //利用者の画像をアップロード
 Route::get('/profile/','Pages\ProfileController@index')->name('profile');
 Route::post('/profile/update','Pages\ProfileController@updateProfile')->name('profile.update');
+Route::post('/profile/passwordchange','Pages\ProfileController@passwordchange')->name('profile.passwordchange');
 
 
 Route::post('app','Pages\Moshikomi@getmoshikomi')->name('app');

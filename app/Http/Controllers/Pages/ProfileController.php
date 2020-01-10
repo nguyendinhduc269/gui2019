@@ -45,10 +45,6 @@ class ProfileController extends Controller
         // Form validation
 		$request->validate([
 			'name'        =>  'required',
-			//'picture'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-			'current_password' => ['required', new MatchOldPassword],
-			'new_password' => ['required'],
-			'new_confirm_password' => ['same:new_password'],
 		]);
 
         // Get current user
@@ -70,9 +66,21 @@ class ProfileController extends Controller
             // Set user profile image path in database to filePath
 			$user->picture = $filePath;
 		}
-
-    User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+    	User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 		$user->save();
 		return redirect()->back()->with('success','会員情報更新しました！');
+	}
+	public function passwordchange(Request $request)
+	{
+		$request->validate([
+			'current_password' => ['required', new MatchOldPassword],
+			'new_password' => ['required'],
+			'new_confirm_password' => ['same:new_password'],
+		]);
+		$user = User::findOrFail(auth()->user()->id);
+		User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+		$user->save();
+		return redirect()->back()->with('success','パスワード更新しました！');
+
 	}
 }
