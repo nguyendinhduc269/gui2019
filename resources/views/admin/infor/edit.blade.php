@@ -25,7 +25,7 @@
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="company_name">会社名:</label>
+                    <label for="company_name">会社名<span class="label label-danger">必須</span></label>
                     <input type="text" class="form-control" name="company_name" value={{ $infor->company_name }} >
                 </div>
             </div>
@@ -37,13 +37,13 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="locationInfo">説明会場所:</label>
+                    <label for="locationInfo">説明会場所<span class="label label-danger">必須</span></label>
                     <input type="text" class="form-control" name="locationInfo" value={{ $infor->location_info }} >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="date">開催日:</label>
+                    <label for="date">開催日<span class="label label-danger">必須</span></label>
                     <input type="text" class="form-control" id="date" name="date" value={{ $infor->date }} >
                 </div>
             </div>
@@ -164,7 +164,6 @@
                     <label for="logo" class="form-label text-md-right">ロゴ</label>
                     <input id="logo" type="file" class="form-control" name="logo">
                 </div>
-
             </div>
 
             <div class="text-center">

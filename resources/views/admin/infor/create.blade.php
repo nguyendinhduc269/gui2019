@@ -30,17 +30,17 @@
       {{ session()->get('danger') }}  
     </div>
     @endif
-    <form method="post" action="{{ route('infor.store')}}">
+    <form method="POST" action="{{ route('infor.store')}}" enctype="multipart/form-data">
       @csrf
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="company_name">会社名:</label>
+          <label for="company_name">会社名<span class="label label-danger">必須</span></label>
           <input type="text" class="form-control" name="company_name">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="locationInfo">説明会場所:</label>
+          <label for="locationInfo">説明会場所<span class="label label-danger">必須</span></label>
           <input type="text" class="form-control" name="locationInfo">
         </div>
       </div>
@@ -52,7 +52,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="date">開催日:</label>
+          <label for="date">開催日<span class="label label-danger">必須</span></label>
           <input type="text" class="form-control" id="date" name="date">
         </div>
       </div>
@@ -73,17 +73,7 @@
           </select> 
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="written_test_content">筆記試験内容:</label>
-          <select class="form-control input-sm m-bot15" name="written_test_content">
-            <option value="">選ぶ</option>
-            <option value="有">有り</option>
-            <option value="無し">無し</option>
-            <option value="不明">不明</option>
-          </select> 
-        </div>
-      </div>
+      
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="interview">面接:</label>
@@ -112,6 +102,17 @@
         <div class="form-group col-md-6">
           <label for="age_limit">年齢制限:</label>
           <input type="text" class="form-control" name="age_limit">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="written_test_content">筆記試験内容:</label>
+          <select class="form-control input-sm m-bot15" name="written_test_content">
+            <option value="">選ぶ</option>
+            <option value="有">有り</option>
+            <option value="無し">無し</option>
+            <option value="不明">不明</option>
+          </select> 
         </div>
       </div>
       <div class="form-row">
@@ -168,11 +169,23 @@
           </select>
         </div>
       </div>
+      <div class="form-group">
+        <div class="col-md-6">
+            <label for="logo" class="form-label text-md-right">ロゴ</label>
+            <input id="logo" type="file" class="form-control" name="logo">
+        </div>
+      </div>
 
-      <div class="text-center">
-                <button type="submit" class="btn btn-primary">追加</button>
+      <div class="form-group row mb-0">
+        <div class="text-center">
+            <div class="col-md-8 offset-md-6">
+                <button type="submit" class="btn btn-primary">
+                    {{ __('追加') }}
+                </button>
                 <a style="margin: 19px;" href="{!! url('admin/infor') !!}" class="btn btn-danger">キャンセル</a>
             </div>
+        </div>
+    </div>
     </form>
   </div>
 </div>

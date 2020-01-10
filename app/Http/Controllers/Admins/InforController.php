@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Information;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Models\Traits\UploadTrait;
-//use App\Models\Imports\ImportCSV;
+use App\Traits\UploadTrait;
+use App\Imports\ImportCSV;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 //use App\Http\Requests\UploadCSV;
@@ -26,27 +26,21 @@ class InforController extends Controller
     {
         //
         $infors = new Information;
-
         $queries = [];
-
         $columns = [
             'recruited_occupation',
         ];
-
         foreach ($columns as $column) {
             if($request->has($column)){
                 $infors = $infors->where($column, $request->get($column));
                 $queries[$column] = $request->get($column);
             }
         }
-
         if ($request->has('sort')) {
             $infors = $infors->orderBy('date',$request->get('sort'));
             $queries['sort'] = request('sort');
         }
-
         $infors = $infors->paginate(8)->appends($queries);
-
         return view('admin.infor.index', compact('infors'));
     }
 
@@ -84,7 +78,18 @@ class InforController extends Controller
 
                 }
                 $logo = $temp->logo ;
+                dd($logo);
             }    
+        }
+
+        if ($request->has('logo')) 
+        {
+            $image = $request->file('logo');
+            $name = str_slug($request->input('company_name')).'_'.time();
+            $folder = '/uploads/images/logo/';
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            $this->uploadOne($image, $folder, 'public', $name);
+            $logo = $filePath;
         }
 
         $infor = new Information([

@@ -25,17 +25,15 @@
             <p class="login-img"><i class="icon_lock_alt"></i></p> 
             <div>
             <div class="input-group">
-            <span class="input-group-addon glyphicon glyphicon-user"></span>
-            <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Eメールまた学生番号">
-            @if ($errors->has('username'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('username') }}</strong>
-                </span>
-            @endif
+                <span class="input-group-addon glyphicon glyphicon-user"></span>
+                <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Eメールまた学生番号">
+                @if ($errors->has('username'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
+                @endif
             </div>
-   
             <br>
-
             <div class="input-group">
                 <span class="input-group-addon glyphicon glyphicon-key"></span>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="パスワード">
