@@ -34,10 +34,14 @@
           <form class="form-inline" action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group mx-sm-3 mb-2">
-              <input type="file" name="fileimport" class="form-control" required>
+              <div class="col-md-6">
+              <label class="form-label text-right">UTF-8エンコード設定<span class="label label-danger">必須</span></label>
+                <input type="file" name="fileimport" class="form-control" required>
+              </div>
+                <button type="submit" class="btn btn-primary mb-2">インポート説明会データ</button>
+                <a class="btn btn-warning" href="{{ route('export') }}">CSVテンプレート</a>
+              
             </div>
-            <button type="submit" class="btn btn-primary mb-2">インポート説明会データ</button>
-            <a class="btn btn-warning" href="{{ route('export') }}">CSVテンプレート</a>
           </form>
         </div>
       </div>

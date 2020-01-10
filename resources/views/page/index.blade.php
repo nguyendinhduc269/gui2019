@@ -154,7 +154,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <ul class="pagination alg-right-pad">
+        <ul class="pagination alg-center-pad">
             {{ $infors->links() }}
         </ul>
     </div>
