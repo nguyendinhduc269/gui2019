@@ -21,7 +21,7 @@ class BookController extends Controller
     {
      $infors = Information::has('students')->get();
      $infor = DB::table('information')->get();
-     $students = DB::table('students')->get();
+     $students = DB::table('students')->orderBy('student_code')->get();
 
 
      return view('admin.book.index',compact('infors','infor','students'));

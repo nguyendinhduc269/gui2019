@@ -73,7 +73,7 @@ class StudentController extends Controller
 
         //
         $students = new User([
-            'student_code' =>  $request->get('student_code'),
+            'student_code' =>  Str::upper($request->get('student_code')),
             'name' => $request->get('name'),
             'password' => hash::make($request->get('password')),
             // 'picture' => $request->get('picture'),
@@ -126,7 +126,7 @@ class StudentController extends Controller
     {
         //
         $student = User::find($id);
-        $student->student_code =  $request->get('student_code');
+        $student->student_code =  Str::upper($request->get('student_code'));
         $student->name = $request->get('name');
         if($request->get('password')!= $student->password){
             
