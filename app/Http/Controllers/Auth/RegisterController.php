@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Str;
 
 
 class RegisterController extends Controller
@@ -86,7 +87,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'student_code' => $data['student_code'],
+            'student_code' => Str::upper($data['student_code']),
             'seminar_room' => $data['seminar_room'],
             'picture' => asset('Template/Gui2019/img/user.jpg'),
             'grade' => $data['grade'],

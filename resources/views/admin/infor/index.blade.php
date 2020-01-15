@@ -28,7 +28,7 @@
       <div class="col-lg-12">
         <h1 class="display-3">会社の説明会追加</h1>
         <div class="col-sm-2" > 
-          <a href="{{ route('infor.create')}}" class="btn btn-primary">会社追加</a>
+          <a href="{{ route('infor.create')}}" class="btn btn-primary">説明会追加</a>
         </div> 
         <div class="col-sm-9">
           <form class="form-inline" action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
@@ -38,7 +38,7 @@
               <label class="form-label text-right">UTF-8エンコード設定<span class="label label-danger">必須</span></label>
                 <input type="file" name="fileimport" class="form-control" required>
               </div>
-                <button type="submit" class="btn btn-primary mb-2">インポート説明会データ</button>
+                <button type="submit" class="btn btn-primary mb-2">説明会データアップロード</button>
                 <a class="btn btn-warning" href="{{ route('export') }}">CSVテンプレート</a>
               
             </div>
