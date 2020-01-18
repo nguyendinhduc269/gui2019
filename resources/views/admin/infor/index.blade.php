@@ -38,7 +38,7 @@
               <label class="form-label text-right">UTF-8エンコード設定<span class="label label-danger">必須</span></label>
                 <input type="file" name="fileimport" class="form-control" required>
               </div>
-                <button type="submit" class="btn btn-primary mb-2">説明会データアップロード</button>
+                <button type="submit" class="btn btn-primary mb-2">説明会データをアップロードする</button>
                 <a class="btn btn-warning" href="{{ route('export') }}">CSVテンプレート</a>
             </div>
           </form>
