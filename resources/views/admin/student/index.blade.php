@@ -14,9 +14,9 @@
       @endif
     </div>
     <section class="panel">
-    <h3 class="display-3">会員追加</h3>
+    <h3 class="display-3">会員新規登録</h3>
     <div>
-      <a style="margin: 19px;" href="{{ route('student.create')}}" class="btn btn-primary">アカウント追加</a>
+      <a style="margin: 19px;" href="{{ route('student.create')}}" class="btn btn-primary">新規登録</a>
     </div>
     </section>  
     <section class="panel">
@@ -29,21 +29,17 @@
           <p class="col-sm-4">研究室: 
             <select size="1" name="links" onchange="window.location.href=this.value;">
               <option>選択</option>
-
               @foreach($serminas as $select)
-
               <option value="{{ route('student.index', [
               'seminar_room' => $select->serminaName,
               'sort'  => request('sort')
               ]) }}">{{$select->serminaName}}</option>
-
               @endforeach
-
               <option value="{{ route('student.index')}}">無し</option>
             </select>
           </p>
           <p class="col-sm-4 text-right">
-           年生  ソート:
+           学籍番号  ソート:
            <a href="{{ route('student.index', [
            'seminar_room' => request('seminar_room'),
            'sort' => 'asc'

@@ -16,7 +16,7 @@
           </ul>
         </div>
     @endif
-    <div class="col-md-4 text-center col-sm-6 col-xs-6">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4">
 
         <form class="login-form" method="POST" action="{{ route('login') }}">
         @csrf
@@ -35,7 +35,7 @@
             </div>
             <br>
             <div class="input-group">
-                <span class="input-group-addon glyphicon glyphicon-key"></span>
+                <span class="input-group-addon glyphicon glyphicon-lock"></span>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="パスワード">
             </div>
             @error('password')
@@ -65,8 +65,5 @@
     
 </div>
 
-    
-
-    
-
+  
 @endsection

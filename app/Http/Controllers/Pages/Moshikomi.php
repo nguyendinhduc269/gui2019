@@ -25,18 +25,18 @@ class Moshikomi extends Controller
                 # code...
             if($student->id == $request->get('student_id'))
             {
-                return redirect('/')->with('danger', '失敗しました！　この説明会は申し込みしています！');
+                return redirect()->back()->with('danger', '失敗しました！　この説明会は申し込みしています！');
             }
         }  
     }
     if (Carbon::parse($infor->date) < Carbon::now()) {
         # code...
-        return redirect('/')->with('danger', '失敗しました！　この説明会はすぎしています！');
+        return redirect()->back()->with('danger', '失敗しました！　この説明会はすぎしています！');
 
     }
     $infor->students()->attach($request->get('student_id'));
 
-    return redirect('/')->with('success', '追加完成した！');
+    return redirect()->back()->with('success', '追加完成した！');
 
     }
 

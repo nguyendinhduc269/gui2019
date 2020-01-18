@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Sermina;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
 use App\Models\Information;
@@ -24,13 +25,14 @@ class ProfileController extends Controller
 
 	public function index()
 	{
+		$sermina = Sermina::All();
 		$infors = Information::whereHas('students', function (Builder $query) {
 			$query->where('students_id', '=', Auth::user()->id);
 		})->orderBy('date','desc')->get();
 		$ranks = Information::withCount('students')
 	      ->orderBy('students_count', 'desc')->limit(1)->get();
 	    $lists = Information::has('students')->withCount('students')->orderBy('students_count','desc')->get();
-		return view('page.profile',compact('infors','ranks','lists'));
+		return view('page.profile',compact('infors','ranks','lists','sermina'));
 	}
 
 	public function cancelmoshikomi(Request $request)
@@ -51,6 +53,8 @@ class ProfileController extends Controller
 		$user = User::findOrFail(auth()->user()->id);
         // Set user name
 		$user->name = $request->input('name');
+		$user->grade = $request->input('grade');
+		$user->seminar_room = $request->input('seminar_room');
         // Check if a profile image has been uploaded
 		if ($request->has('picture')) {
             // Get image file
@@ -66,7 +70,6 @@ class ProfileController extends Controller
             // Set user profile image path in database to filePath
 			$user->picture = $filePath;
 		}
-    	User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 		$user->save();
 		return redirect()->back()->with('success','会員情報更新しました！');
 	}

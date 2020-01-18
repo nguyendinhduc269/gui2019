@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 //use App\Http\Requests\UploadCSV;
 //use App\Exports\TemplateCSV;
-use Illuminate\Http\Response;
+//use Illuminate\Http\Response;
 
 class InforController extends Controller
 {
@@ -225,7 +225,7 @@ class InforController extends Controller
     public function export()
     {
        
-        $file= public_path(). "/downloads/Template.csv";   
+        $file=public_path()."/downloads/Template.csv";   
         return response()->download($file);
 
     }

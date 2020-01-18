@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Sermina;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 
 class StudentController extends Controller
@@ -36,7 +37,7 @@ class StudentController extends Controller
     }
 
     if ($request->has('sort')) {
-        $students = $students->orderBy('grade',$request->get('sort'));
+        $students = $students->orderBy('student_code',$request->get('sort'));
         $queries['sort'] = request('sort');
     }
 

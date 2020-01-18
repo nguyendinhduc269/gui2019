@@ -117,7 +117,7 @@
 
             <li class="sub-menu ">
               <a href="javascript:;" class="">
-                <i class="icon_table"></i>
+                <i class="icon_building_alt"></i>
                 <span>説明会情報</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
@@ -131,31 +131,31 @@
             <!-- Student of action -->
             <li class="sub-menu ">
               <a href="javascript:;" class="">
-                <i class="icon_documents_alt"></i>
+                <i class="icon_profile"></i>
                 <span>会員</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
                 <li><a class="" href="{{ route('student.index')}}">リスト</a></li>
-                <li><a class="" href="{{ route('student.create')}}"><span>アカウント追加</span></a></li>
+                <li><a class="" href="{{ route('student.create')}}"><span>新規登録</span></a></li>
 
               </ul>
             </li>
             <li class="sub-menu ">
               <a href="javascript:;" class="">
-                <i class="icon_documents_alt"></i>
+                <i class="icon_desktop"></i>
                 <span>研究室</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
               <ul class="sub">
                 <li><a class="" href="{{ route('sermina.index')}}">リスト</a></li>
-                <li><a class="" href="{{ route('sermina.create')}}"><span>アカウント追加</span></a></li>
+                <li><a class="" href="{{ route('sermina.create')}}"><span>研究室追加</span></a></li>
 
               </ul>
             </li>
             <li class="sub-menu ">
               <a href="javascript:;" class="">
-                <i class="icon_documents_alt"></i>
+                <i class="icon_calendar"></i>
                 <span>申し込み</span>
                 <span class="menu-arrow arrow_carrot-right"></span>
               </a>
@@ -184,9 +184,7 @@
               </div>
 
               <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="{{Route('home')}}">Home</a></li>
-            <!-- <li><i class="fa fa-bars"></i>Pages</li>
-              <li><i class="fa fa-square-o"></i>Pages</li> -->
+                <li><i class="fa fa-home"></i><a href="{{Route('adminIndex')}}">Home</a></li>
             </ol>
           </div>
         </div>

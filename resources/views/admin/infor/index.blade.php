@@ -40,7 +40,6 @@
               </div>
                 <button type="submit" class="btn btn-primary mb-2">説明会データアップロード</button>
                 <a class="btn btn-warning" href="{{ route('export') }}">CSVテンプレート</a>
-              
             </div>
           </form>
         </div>

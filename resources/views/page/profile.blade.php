@@ -134,15 +134,60 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="picture" class="col-md-12 col-form-label text-md-right">Profile Image</label>
+                    <label for="picture" class="col-md-12 col-form-label text-md-right">画像</label>
                     <div class="col-md-12">
-                     <input id="picture" type="file" class="form-control" name="picture">
-                 </div>
-             </div>
+                        <input id="picture" type="file" class="form-control" name="picture">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label for="seminar_room">研究室:</label>
+                            <select class="form-control" name="seminar_room">
+                                @foreach ($sermina as $select )
+                                <option value="{{ $select->serminaName }}" {{($select->serminaName == Auth::user()->seminar_room )? 'selected':''}}> {{ $select->serminaName }}</option>
+                                @endforeach    
+                            </select>
+                        </div>
+                    
+                        <div class="col-sm-6">
+                            <label for="grade">年生:</label>
+                            <select class="form-control" name="grade"> 
+                                @switch( Auth::user()->grade)
+                                    @case(1)
+                                        <option value="1" selected>1 年生</option>
+                                        <option value="2">2 年生</option>
+                                        <option value="3">3 年生</option>
+                                        <option value="4">4 年生</option>
+                                        @break
+                                    @case(2)
+                                        <option value="1" >1 年生</option>
+                                        <option value="2" elected>2 年生</option>
+                                        <option value="3">3 年生</option>
+                                        <option value="4">4 年生</option>
+                                        @break
+                                    @case(3)
+                                        <option value="1" >1 年生</option>
+                                        <option value="2" >2 年生</option>
+                                        <option value="3" selected>3 年生</option>
+                                        <option value="4">4 年生</option>
+                                        @break
+                                    @default
+                                        <option value="1" >1 年生</option>
+                                        <option value="2">2 年生</option>
+                                        <option value="3">3 年生</option>
+                                        <option value="4" selected>4 年生</option>
+                                        @break
+    
+                                @endswitch
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button class="btn btn-success">Update Profile</button>
+                    <button class="btn btn-success">保存</button>
                 </div>
             </div>
         </form>
