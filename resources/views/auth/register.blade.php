@@ -115,9 +115,9 @@
 
                 <div class="form-group row mb-0">
                     <div class="text-center">
-                        <div class="col-md-6 offset-md-4">
+                        <div class="col-md-10 offset-md-5">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('アカウントを作成') }}
+                                {{ __('登録') }}
                             </button>
                         </div>
                     </div>

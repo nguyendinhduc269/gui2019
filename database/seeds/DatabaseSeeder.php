@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 			StudentsTableSeeder::class,
 			InformationTableSeeder::class,
 			BookTableSeeder::class,
+			SerminaTableSeeder::class,
 		]);
     }
 }

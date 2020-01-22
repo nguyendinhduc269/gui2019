@@ -65,21 +65,23 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->merge(array('student_code' => strtoupper($request->input('student_code'))));
+        $request->merge(array('email' => strtolower($request->input('email'))));
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255','unique:students'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'student_code' =>['required','string','regex:/([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[1-9]/m','unique:students'],
+            'student_code' =>['required','string','regex:/^([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[0-9]+[1-9]$/m','unique:students'],
          ]);
 
-        //
         $students = new User([
-            'student_code' =>  Str::upper($request->get('student_code')),
+            'student_code' =>  strtoupper($request->get('student_code')),
             'name' => $request->get('name'),
             'password' => hash::make($request->get('password')),
-            // 'picture' => $request->get('picture'),
-            'email' => $request->get('email'),
-            'serminar_room' => $request->get('serminar_room'),
+            'email' => strtolower($request->get('email')),
+            'seminar_room' => $request->get('seminar_room'),
             'grade' => $request->get('grade'),
             'resume' => $request->get('resume'),
             'isAdmin' => $request->get('isAdmin'),
@@ -125,8 +127,36 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $student = User::find($id);
+
+        $request->merge(array('student_code' => strtoupper($request->input('student_code'))));
+        $request->merge(array('email' => strtolower($request->input('email'))));
+
+        if ($student->student_code != $request->input("student_code")) {
+            if ($student->email != $request->input("email")) {
+                $request->validate([
+                    'name' => ['required', 'string', 'max:255'],
+                    'email' => ['required', 'string', 'email', 'max:255','unique:students'],
+                    'password' => ['required', 'string', 'min:8'],
+                    'student_code' =>['required','string','regex:/^([1-9]0?)[0-9](TE|te|ad|AD)[0-9]+[0-9]+[1-9]$/m','unique:students'],
+                ]);
+            }else{
+                $request->validate([
+                    'name' => ['required', 'string', 'max:255'],
+                    'password' => ['required', 'string', 'min:8'],
+                    'student_code' =>['required','string','regex:/^([1-9]0?)[0-9](TE|te|ad|AD)[0-9]+[0-9]+[1-9]$/m','unique:students'],
+                ]);
+            }
+           
+        }elseif ($student->email != $request->input("email")) {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255','unique:students'],
+                'password' => ['required', 'string', 'min:8'],
+            ]);
+        }
+        
+
         $student->student_code =  Str::upper($request->get('student_code'));
         $student->name = $request->get('name');
         if($request->get('password')!= $student->password){
@@ -134,7 +164,7 @@ class StudentController extends Controller
             $student->password =  hash::make($request->get('password'));
 
         }
-        $student->email = $request->get('email');
+        $student->email = strtolower($request->get('email'));
         $student->seminar_room =  $request->get('seminar_room');
         $student->grade = $request->get('grade');
         $student->resume = $request->get('resume');

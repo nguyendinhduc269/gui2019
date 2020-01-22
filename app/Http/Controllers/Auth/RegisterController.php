@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Models\Student;
 use App\Models\Sermina;
 use App\Models\Information;
-// use Illuminate\Http\Request;
-// use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Requests\RegisterRequest;
@@ -65,11 +64,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['email'] = strtolower($data['email']);
+        $data['student_code'] = strtoupper($data['student_code']);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255','unique:students'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'student_code' =>['required','string','regex:/([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[1-9]/m','unique:students'],
+            'student_code' =>['required','string','regex:/^([1-9]0?)[0-9](TE|te|ad|AD)\B[0-9]+[0-9]+[1-9]$/m','unique:students'],
             'seminar_room' =>['string'],
             'grade' => ['string'],
         ]);
@@ -84,8 +85,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Student::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name' => strtoupper($data['name']),
+            'email' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
             'student_code' => Str::upper($data['student_code']),
             'seminar_room' => $data['seminar_room'],

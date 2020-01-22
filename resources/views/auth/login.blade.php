@@ -26,7 +26,7 @@
             <div>
             <div class="input-group">
                 <span class="input-group-addon glyphicon glyphicon-user"></span>
-                <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Eメールまた学生番号">
+                <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus placeholder="Eメールまた学生番号" style="text-transform: lowercase">
                 @if ($errors->has('username'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('username') }}</strong>
