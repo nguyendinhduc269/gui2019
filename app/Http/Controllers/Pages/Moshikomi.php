@@ -17,31 +17,21 @@ class Moshikomi extends Controller
     public function getmoshikomi(Request $request)
     {
         $infor = Information::find( $request->get('infor_id'));
-
-    
-    if ( $infor->students()->exists()) {
-             # code...
-        foreach ($infor->students as $student) {
-                # code...
-            if($student->id == $request->get('student_id'))
-            {
-                return redirect()->back()->with('danger', '失敗しました！　この説明会は申し込みしています！');
-            }
-        }  
+        //申し込み重複するか確認する。
+        if ( $infor->students()->exists()) {
+            foreach ($infor->students as $student) {
+                if($student->id == $request->get('student_id'))
+                {
+                    return redirect()->back()->with('danger', '失敗しました！　この説明会は申し込みしています！');
+                }
+            }  
+        }
+        // 開催日を確認する
+        if (Carbon::parse($infor->date) < Carbon::now()) {
+            return redirect()->back()->with('danger', '失敗しました！　この説明会はすぎしています！');
+        }
+        $infor->students()->attach($request->get('student_id'));
+        return redirect()->back()->with('success', '追加完成した！');
     }
-    if (Carbon::parse($infor->date) < Carbon::now()) {
-        # code...
-        return redirect()->back()->with('danger', '失敗しました！　この説明会はすぎしています！');
-
-    }
-    $infor->students()->attach($request->get('student_id'));
-
-    return redirect()->back()->with('success', '追加完成した！');
-
-    }
-
-    
-
-     
 
 }

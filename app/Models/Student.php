@@ -45,6 +45,9 @@ class Student extends Authenticatable
     }
 
     public function information(){
-        return $this->belongsToMany('App\Models\Information','Book','information_id','students_id');
+        return $this->belongsToMany('App\Models\Information','book','information_id','students_id');
     }
+
+
+    //belongsToMany('宛モデル','pivotテーブル名','宛テーブル名の外部キー','自分の外部キー');
 }

@@ -29,9 +29,7 @@
           @csrf
           <div class="col-sm-4">
             <select class="form-control" name="infor_id">
-
               <option value="">説明会選択</option>
-
               @foreach ($infor as $infor)
               <option value="{{ $infor->id }}"> {{ $infor->company_name }}</option>
               @endforeach    
@@ -39,9 +37,7 @@
           </div>
           <div class="col-sm-4">
             <select class="form-control" name="student_id">
-
               <option value="">学生番号選択</option>
-
               @foreach ($students as $students)
               <option value="{{ $students->id }}"> {{ $students->student_code }}</option>
               @endforeach    
@@ -61,9 +57,7 @@
         
       </header>
       <table class="table table-striped table-advance table-hover">
-
         <tr class="thtop">
-
          <th><i class="icon_profile"></i> No.</th>
          <th><i class="icon_profile"></i> 企業名</th>
          <th><i class="icon_profile"></i> 説明会場所</th>
@@ -71,11 +65,9 @@
          <th><i class="icon_profile"></i> 学生名</th>
          <th><i class="icon_profile"></i> 学生画像</th>
          <th><i class="icon_profile"></i> アクション</th>
-
        </tr>
        @foreach($infors as $infor)
        <tr>
-
         <td rowspan="{{count($infor->students) + 1}}">{{$loop->index + 1}}</td>
         <td rowspan="{{count($infor->students) + 1}}">{{$infor->company_name}}</td>
         <td rowspan="{{count($infor->students) + 1}}">{{$infor->location_info}}</td>
@@ -95,9 +87,7 @@
         </tr>
         @endforeach
         @endforeach
-
       </table>
-
     </section>
   </div>
 </div>

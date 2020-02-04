@@ -13,8 +13,9 @@ class Information extends Model
     protected $fillable = [
     	'location_info', 'date', 'company_name', 'infor', 'written_test', 'written_test_content', 'interview', 'industry', 'country', 'recruited_occupation', 'qualification', 'age_limit', 'grade', 'graduate', 'condidate', 'job_vote', 'part_time_job', 'intership','url','logo',
     ];
-    //public $timestamps = false;
+   
+   
     public function students(){
-    	return $this->belongstoMany('App\Models\User','Book','information_id','students_id')->withTimestamps();
+    	return $this->belongstoMany('App\Models\Student','book','information_id','students_id')->withTimestamps();
     }
 }

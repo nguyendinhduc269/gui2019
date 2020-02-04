@@ -85,7 +85,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Student::create([
-            'name' => strtoupper($data['name']),
+            'name' => ($data['name']),
             'email' => strtolower($data['email']),
             'password' => Hash::make($data['password']),
             'student_code' => Str::upper($data['student_code']),
@@ -94,8 +94,5 @@ class RegisterController extends Controller
             'grade' => $data['grade'],
         ]);
     }
-
-    
-
-   
+ 
 }

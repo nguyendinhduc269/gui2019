@@ -78,7 +78,6 @@ class InforController extends Controller
 
                 }
                 $logo = $temp->logo ;
-                dd($logo);
             }    
         }
 
@@ -90,6 +89,9 @@ class InforController extends Controller
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             $this->uploadOne($image, $folder, 'public', $name);
             $logo = $filePath;
+        }
+        else{
+            $logo = '/Template/Gui2019/img/sample.png';
         }
 
         $infor = new Information([
@@ -111,8 +113,6 @@ class InforController extends Controller
             'condidate' => $request->get('condidate'),
             'url' => $request->get('url'),
             'logo' => $logo,
-            
-        
         ]);
         $infor->save();
         return back()->with('success', '追加完成した！');
@@ -218,9 +218,15 @@ class InforController extends Controller
 
     public function import(Request $request)
     {
-       Excel::import(new ImportCSV,request()->file('fileimport'),null, \Maatwebsite\Excel\Excel::CSV);
-        //$info ->save();
-        return back()->with('success', 'データをインポート完了！');
+        try{
+             Excel::import(new ImportCSV,request()->file('fileimport'),null, \Maatwebsite\Excel\Excel::CSV);
+            return back()->with('success', 'データをインポート完了！');
+        }
+        catch(Exception $e){
+            return back()->withError($e->getMessage())->withInput();
+        }
+            //$info ->save();
+           
     }
     public function export()
     {
