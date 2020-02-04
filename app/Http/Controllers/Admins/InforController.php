@@ -10,6 +10,7 @@ use App\Traits\UploadTrait;
 use App\Imports\ImportCSV;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
+use App\Exports\CSVExport;
 //use App\Http\Requests\UploadCSV;
 //use App\Exports\TemplateCSV;
 //use Illuminate\Http\Response;
@@ -231,8 +232,11 @@ class InforController extends Controller
     public function export()
     {
        
-        $file=public_path()."/downloads/Template.csv";   
-        return response()->download($file);
+        return Excel::download(new CSVExport, 'template.csv');
+        //return (new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV);
+
+        // $file=public_path()."/downloads/Template.csv";   
+        // return response()->download($file);
 
     }
 }
