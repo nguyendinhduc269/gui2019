@@ -341,3 +341,13 @@ a.slide_btn {
   height: 100%;
   width: 100%;
 }
+
+
+.product-images{
+    width: 100%;
+    height: 180px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}

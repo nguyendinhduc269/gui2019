@@ -12,7 +12,7 @@
     <!-- Fontawesome core CSS -->
     <link href="{{asset('Template/Pages/assets/css/font-awesome.min.css')}}" rel="stylesheet" />
     <!--GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!-- custom CSS here -->
     <link href="{{asset('Template/Pages/assets/css/style.css')}}" rel="stylesheet" />
 </head>
@@ -124,9 +124,9 @@
                         人気No{{$loop->index + 1}}
                     </div>
                     <div class="thumbnail product-box">
-                        <a href="{{$rank->url}}" target="_blank">
-                            <img src="{{asset($rank->logo)}}" alt="" />
-                        </a>
+                        <div class="product-images" style="background-image:url({{asset($rank->logo)}});">
+                            <a href="{{$rank->url}}" target="_blank"></a>
+                        </div>
                         <div class="caption">
                             <h3>{{$rank->company_name}}</h3>
                             <p>{{$rank->date}}</p>
