@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 02:10 PM
+-- Generation Time: Feb 14, 2020 at 04:49 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -34,7 +34,7 @@ CREATE TABLE `book` (
   `students_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `book`
@@ -49,21 +49,8 @@ INSERT INTO `book` (`id`, `information_id`, `students_id`, `created_at`, `update
 (112, 23, 35, '2019-11-26 20:50:38', '2019-11-26 20:50:38'),
 (113, 42, 32, '2020-01-04 09:26:22', '2020-01-04 09:26:22'),
 (114, 47, 32, '2020-01-04 09:26:39', '2020-01-04 09:26:39'),
-(115, 63, 32, '2020-01-05 04:09:15', '2020-01-05 04:09:15');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_images`
---
-
-CREATE TABLE `company_images` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `infor_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(115, 63, 32, '2020-01-05 04:09:15', '2020-01-05 04:09:15'),
+(116, 70, 32, '2020-01-28 15:24:58', '2020-01-28 15:24:58');
 
 -- --------------------------------------------------------
 
@@ -73,44 +60,44 @@ CREATE TABLE `company_images` (
 
 CREATE TABLE `information` (
   `id` int(10) UNSIGNED NOT NULL,
-  `location_info` varchar(255) NOT NULL,
+  `location_info` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
-  `company_name` varchar(255) NOT NULL,
-  `info` varchar(255) DEFAULT NULL,
-  `written_test` varchar(255) DEFAULT NULL,
-  `written_test_content` varchar(255) DEFAULT NULL,
-  `interview` varchar(255) DEFAULT NULL,
-  `industry` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `recruited_occupation` varchar(255) DEFAULT NULL,
-  `qualification` varchar(255) DEFAULT NULL,
-  `age_limit` varchar(255) DEFAULT NULL,
-  `grade` varchar(255) DEFAULT NULL,
-  `graduate` varchar(255) DEFAULT NULL,
-  `condidate` varchar(255) DEFAULT NULL,
-  `job_vote` varchar(255) DEFAULT NULL,
-  `part_time_job` varchar(255) DEFAULT NULL,
-  `intership` varchar(255) DEFAULT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `info` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `written_test` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `written_test_content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `interview` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `industry` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `recruited_occupation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qualification` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age_limit` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `graduate` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condidate` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `job_vote` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `part_time_job` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `intership` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '/Template/Gui2019/img/sample.png',
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '#',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `logo` varchar(255) NOT NULL DEFAULT '/Template/Gui2019/img/sample.png',
-  `url` varchar(255) DEFAULT '#'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `information`
 --
 
-INSERT INTO `information` (`id`, `location_info`, `date`, `company_name`, `info`, `written_test`, `written_test_content`, `interview`, `industry`, `country`, `recruited_occupation`, `qualification`, `age_limit`, `grade`, `graduate`, `condidate`, `job_vote`, `part_time_job`, `intership`, `created_at`, `updated_at`, `logo`, `url`) VALUES
-(19, '111', '2018-02-23', '第一工業大学', '第一工業大学の説明', '有り', 'SPI検査', '学校で行います', '学校', NULL, '教師', 'N1', NULL, '4年生', '無し', '無し', '', '無し', '不可', NULL, '2019-11-26 20:04:44', '/uploads/images/logo/_1572402766.jpg', 'http://ueno.daiichi-koudai.ac.jp/'),
-(20, '444', '2016-12-20', 'LABI', 'LABIの説明', '不明', 'SPI検査', '学校で行い', NULL, '特に無し', '販売', 'N2以上', NULL, '4年生', '無し', '無し', '', '有り', '不可', NULL, '2019-11-26 20:05:16', '/uploads/images/logo/labi_1572403366.jpg', 'http://www.yamadalabi.com/'),
-(21, '555', '2018-12-20', '東芝株式会社', '東芝株式会社の説明', '有り', '不明', '会社で第一次', NULL, NULL, 'SE', NULL, NULL, '4年生', '無し', '無し', '', '無し', '相談による', NULL, '2019-11-26 20:06:52', '/uploads/images/logo/_1572403388.png', 'https://www.toshiba.co.jp/'),
-(23, '777', '2017-06-08', 'ドンキホーテ', 'ドンキホーテの説明', '不明', '無し', NULL, '営業', '中国', NULL, 'N1', '28まで', '4年生', '有り', '無し', '', '有り', '相談による', NULL, '2019-11-26 20:07:36', '/uploads/images/logo/_1572403572.png', 'https://www.donki.com/'),
-(24, '333', '2017-01-01', 'ビックカメラ', 'ビックカメラの説明', '有り', '無し', '一次面接　3号館', '小売業', '中国', 'SE', 'N1', '30', '4年生', '有り', '有り', '', '有り', '有り', NULL, '2019-11-26 20:08:09', '/uploads/images/logo/_1572403591.jpg', 'https://www.biccamera.com/'),
-(29, '381', '2017-11-07', '日建リース', '会社の説明', '有り', '無し', NULL, '営業', 'ベトナム', NULL, 'N1', '30', '4年生', '有り', '無し', '', '無し', '可能', NULL, '2019-11-26 20:12:03', '/uploads/images/logo/_1574831523.png', 'https://nikken-lease.co.jp/'),
-(30, '381', '2017-11-21', '株式会社ラピニクス', '会社の説明', '有り', '有り', '一次面接', '情報系', NULL, 'SE', 'N1', NULL, '4年生', '有り', '無し', '', '無し', '無し', NULL, '2020-01-03 04:10:13', '/uploads/images/logo/_1578057013.jfif', 'https://www.rapinics.co.jp/'),
-(63, '381', '2020-10-27', 'FTS株式会社', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-04 23:19:01', '2020-01-05 04:08:43', '/uploads/images/logo/fts_1578229723.png', 'https://www.fts.co.jp/'),
-(70, '255', '2020-07-03', 'ヤマト運輸株式会社', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-01-05 03:37:02', '2020-01-05 03:37:02', '/Template/Gui2019/img/sample.png', NULL);
+INSERT INTO `information` (`id`, `location_info`, `date`, `company_name`, `info`, `written_test`, `written_test_content`, `interview`, `industry`, `country`, `recruited_occupation`, `qualification`, `age_limit`, `grade`, `graduate`, `condidate`, `job_vote`, `part_time_job`, `intership`, `logo`, `url`, `created_at`, `updated_at`) VALUES
+(19, '111', '2018-02-23', '第一工業大学', '第一工業大学の説明', '有り', 'SPI検査', '学校で行います', '学校', NULL, '教師', 'N1', NULL, '4年生', '無し', '無し', '', '無し', '不可', '/uploads/images/logo/_1572402766.jpg', 'http://ueno.daiichi-koudai.ac.jp/', NULL, '2019-11-26 20:04:44'),
+(20, '444', '2016-12-20', 'LABI', 'LABIの説明', '不明', 'SPI検査', '学校で行い', NULL, '特に無し', '販売', 'N2以上', NULL, '4年生', '無し', '無し', '', '有り', '不可', '/uploads/images/logo/labi_1572403366.jpg', 'http://www.yamadalabi.com/', NULL, '2019-11-26 20:05:16'),
+(21, '555', '2018-12-20', '東芝株式会社', '東芝株式会社の説明', '有り', '不明', '会社で第一次', NULL, NULL, 'SE', NULL, NULL, '4年生', '無し', '無し', '', '無し', '相談による', '/uploads/images/logo/_1572403388.png', 'https://www.toshiba.co.jp/', NULL, '2019-11-26 20:06:52'),
+(23, '777', '2017-06-08', 'ドンキホーテ', 'ドンキホーテの説明', '不明', '無し', NULL, '営業', '中国', NULL, 'N1', '28まで', '4年生', '有り', '無し', '', '有り', '相談による', '/uploads/images/logo/_1572403572.png', 'https://www.donki.com/', NULL, '2019-11-26 20:07:36'),
+(24, '333', '2017-01-01', 'ビックカメラ', 'ビックカメラの説明', '有り', '無し', '一次面接　3号館', '小売業', '中国', 'SE', 'N1', '30', '4年生', '有り', '有り', '', '有り', '有り', '/uploads/images/logo/_1572403591.jpg', 'https://www.biccamera.com/', NULL, '2019-11-26 20:08:09'),
+(29, '381', '2017-11-07', '日建リース', '会社の説明', '有り', '無し', NULL, '営業', 'ベトナム', NULL, 'N1', '30', '4年生', '有り', '無し', '', '無し', '可能', '/uploads/images/logo/_1574831523.png', 'https://nikken-lease.co.jp/', NULL, '2019-11-26 20:12:03'),
+(30, '381', '2017-11-21', '株式会社ラピニクス', '会社の説明', '有り', '有り', '一次面接', '情報系', NULL, 'SE', 'N1', NULL, '4年生', '有り', '無し', '', '無し', '無し', '/uploads/images/logo/_1578057013.jfif', 'https://www.rapinics.co.jp/', NULL, '2020-01-03 04:10:13'),
+(63, '381', '2020-10-27', 'FTS株式会社', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '/uploads/images/logo/fts_1578229723.png', 'https://www.fts.co.jp/', '2020-01-04 23:19:01', '2020-01-05 04:08:43'),
+(70, '255', '2020-07-03', 'ヤマト運輸株式会社', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '/uploads/images/logo/_1581652131.jfif', 'http://www.kuronekoyamato.co.jp/ytc/recruit/', '2020-01-05 03:37:02', '2020-02-13 18:48:51');
 
 -- --------------------------------------------------------
 
@@ -120,41 +107,23 @@ INSERT INTO `information` (`id`, `location_info`, `date`, `company_name`, `info`
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2019_07_27_094252_edit_studens', 1),
-(2, '2019_07_27_103126_edit_information', 2),
-(6, '2019_07_27_113942_create_company_images_table', 3),
-(7, '2019_07_27_114006_create_student_images_table', 3),
-(8, '2019_07_27_125839_edit_student_images', 4),
-(9, '2019_07_28_105306_create_foreign_key_company_images', 5),
-(10, '2019_07_28_111157_edit_information', 6),
-(11, '2019_07_28_111336_edit_company_images', 7),
-(12, '2019_07_28_144051_edit_id_information', 8),
-(13, '2019_07_28_144156_edit_id_students', 9),
-(14, '2019_07_28_144307_edit_id_student_images', 10),
-(15, '2019_07_28_144553_edit_id_book', 11),
-(16, '2019_07_28_144647_create_fk_student_images', 12),
-(17, '2019_07_28_145232_create_fk_student_images', 13),
-(18, '2019_07_28_145450_crate_fk_company_image', 14),
-(19, '2019_07_28_145640_create_fk_book', 15),
-(20, '2019_07_31_172329_user', 16),
-(21, '2019_08_07_061337_edit_information', 16),
-(22, '2019_08_17_163552_edit_infor', 17),
-(23, '2019_08_22_120835_add_created_at_student', 18),
-(24, '2019_09_22_033811_create_sermina', 19),
-(25, '2019_10_02_021255_edit_studentcode_unique', 20),
-(26, '2019_10_09_071138_edit_book', 21),
-(27, '2019_10_29_065810_add_logo_to_information', 22),
-(28, '2019_11_01_094145_create_users_table', 23),
-(29, '2019_11_27_041028_insert_homepage_information', 23);
+(1, '2020_01_06_000000_create_information_table', 1),
+(2, '2020_01_06_000001_create_users_table', 1),
+(3, '2020_01_06_000002_create_students_table', 1),
+(4, '2020_01_06_000003_create_password_resets_table', 1),
+(5, '2020_01_06_000005_create_sermina_table', 1),
+(6, '2020_01_06_000006_create_book_table', 1),
+(7, '2020_01_19_024156_create_sessions_table', 1),
+(8, '2020_01_21_081513_edit_student_table', 1);
 
 -- --------------------------------------------------------
 
@@ -163,10 +132,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -176,11 +145,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `sermina` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `serminaName` varchar(255) NOT NULL,
-  `teacherName` varchar(255) NOT NULL,
+  `serminaName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacherName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sermina`
@@ -201,41 +170,61 @@ INSERT INTO `sermina` (`id`, `serminaName`, `teacherName`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('G4T0SksCWba2VlZUQvZCzwgkxRi1yfBragMEfIBK', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNXlGUUR0a05HSXFYaUViQVJNMk9ZUzRpQlBYTk04ZGp5dXZzeHhncSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vbG9jYWxob3N0L2d1aTIwMTkvcHVibGljIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzI7fQ==', 1580963640),
+('oUXsPVzmZ3ppRtY7KboMvZgKHgFSQMooO4ObNTN6', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSzRUV1VLMmpLMGg0STVjY1c5ODlIT0o1am1na0k2Qng3RTR3WjNLYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWM/cGFnZT0xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzI7fQ==', 1581652149),
+('pqHIgDdj4wrXxiSbidkN9XPzI7tvWsYs49o1O9HS', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiek91b093d0NIUGRXcG4wNDdzOGpkUXdUakRvWWFOeVZqdkIzc2xCYyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM5OiJodHRwOi8vbG9jYWxob3N0L2d1aTIwMTkvcHVibGljL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1580964050);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
   `id` int(10) UNSIGNED NOT NULL,
-  `student_code` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `picture` varchar(255) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `seminar_room` varchar(255) DEFAULT NULL,
-  `grade` varchar(255) NOT NULL,
-  `resume` varchar(255) DEFAULT NULL,
-  `isAdmin` tinyint(1) DEFAULT NULL,
+  `student_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seminar_room` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resume` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `isAdmin` tinyint(4) DEFAULT NULL,
+  `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `remember_token` varchar(256) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `student_code`, `name`, `password`, `picture`, `email`, `seminar_room`, `grade`, `resume`, `isAdmin`, `created_at`, `updated_at`, `remember_token`) VALUES
-(25, '10te555', '555', '$2y$10$VoW7oxyHle3/F7tFMVbSxOQyR.Jq5ASUSxgIbBZV.gkK0k8I.AC7q', '20161219191306dream.jpg', 'houkowamail@gamil.com', '陳', '3年生', NULL, NULL, NULL, NULL, NULL),
-(31, '10te250', 'zh', '3dd635a808ddb6dd4b6731f7c409d53dd4b14df2', 'Lighthouse.jpg', '11419125@qq.com', '鮑 研', '1年生', '', NULL, NULL, NULL, NULL),
-(32, '16te435', 'Duc', '$2y$10$z3YEofTROwvneoXju5dMCeGaH0kTG6e39UoS33YgEB9y/JmE9g62W', '/uploads/images/user/duc_1572332912.jpg', 'nguyendinhduc269@gmail.com', '鮑研究室', '1', NULL, 1, NULL, NULL, 'uKuT2LMSFdFiH0htD6q1xBIVXeZhEL4IsIZKOV09PX30UYDdRfIfApZY8YVC'),
-(34, '16TE436', 'Kuro Neko', '$2y$10$P7.Fe/KwaNJPhA8863sriOgaVw0Cjq7UAvIkvFyQ0VX41StHyZBM2', 'C:\\xampp\\tmp\\php6A6.tmp', 'kuroneko@gmail.com', 'aaa', '4', NULL, NULL, NULL, NULL, NULL),
-(35, '17TE222', '山本　太郎', '$2y$10$/Vg1eLNKKFueiKxj/w1WEu5mznX1fPkgByNKt3TkfTiFBG8znf/1W', '/uploads/images/_1566915445.jpg', 'yamamototaro@gmail.com', 'あああ', '3', NULL, NULL, NULL, NULL, NULL),
-(36, '17TE999', '大和　太郎', '$2y$10$zw3aDs4SVS5Zn2fzEsm82uZF3Bu.5FTcAWVGnSZy11PFnQJBXlJaq', '/Template/Gui2019/img/avatar-mini.jpg', 'yamatotaro@gmail.com', '丹野研究室', '3', NULL, NULL, NULL, NULL, NULL),
-(37, '17TE８８８', '川口　みつき', '$2y$10$MH1DJI/j6PS2nFWKYdLg6uoRbwKLjUtk4Ewoe5JqXU.cM61Y.1TE2', '/Template/Gui2019/img/avatar-mini.jpg', 'kawaguchimitsuki@gmail.com', '無し', '1年', NULL, NULL, NULL, NULL, NULL),
-(41, '16te219', 'Test', '$2y$10$4hR6MCbaOtEj0bm0u422hO.V.YE1lUhc/f3FzLl5EVbMJL1NcL0yS', 'http://localhost:8000/Template/Gui2019/img/user.jpg', 'test@yahoo.com', '鮑研究室', '1', NULL, NULL, NULL, NULL, NULL),
-(43, '10te998', '田中 二朗', '$2y$10$CRavmhRY1CjQk7TdkPGxn.l6GhglhWce21WAYiJITD3xLL4yVAvTS', '/uploads/images/_1570001778.jpg', 'tanakajiro@gmail.com', '鮑研究室', '3', NULL, NULL, NULL, NULL, NULL),
-(44, '10te001', 'Admin', '$2y$10$q8eUFHnmIqgeTeQE6.OePuOKf5gO4Llpb2lsBe7dft.IlaK.BPuM6', '/Template/Gui2019/img/user.jpg', 'admin@gmail.com', '渡辺研究室', '1', NULL, NULL, NULL, NULL, NULL),
-(46, '16te452', 'DucDat', '$2y$10$u70zU8x9XG9ntXxsnXVIs.Y8ki0HsBmynD..fcldthi/xxpr8ycY6', 'http://localhost/Gui2019/public/Template/Gui2019/img/user.jpg', 'vuducdat@gmail.com', '研究室選択', '1', NULL, NULL, '2020-01-02 09:16:22', '2020-01-02 09:16:22', NULL);
+INSERT INTO `students` (`id`, `student_code`, `name`, `password`, `picture`, `email`, `seminar_room`, `grade`, `resume`, `isAdmin`, `remember_token`, `created_at`, `updated_at`) VALUES
+(32, '16TE435', 'Duc', '$2y$10$z3YEofTROwvneoXju5dMCeGaH0kTG6e39UoS33YgEB9y/JmE9g62W', '/uploads/images/user/duc_1580628423.jpg', 'nguyendinhduc269@gmail.com', '鮑研究室', '1', NULL, 1, 'p1zhE5qaJe5TuszACQa5ixhUMKwKNBofIn2i6v95TRPhoa00fTY2595q9cPc', NULL, '2020-02-01 22:27:03'),
+(34, '16TE436', 'Kuro', '$2y$10$P7.Fe/KwaNJPhA8863sriOgaVw0Cjq7UAvIkvFyQ0VX41StHyZBM2', '/uploads/images/user/_1566915230.jpg', 'kuroneko@gmail.com', '木下研究室', '4', NULL, 0, NULL, NULL, '2020-01-28 04:09:48'),
+(35, '17TE222', '山本　太郎', '$2y$10$/Vg1eLNKKFueiKxj/w1WEu5mznX1fPkgByNKt3TkfTiFBG8znf/1W', '/uploads/images/user/_1566915445.jpg', 'yamamototaro@gmail.com', '渡辺研究室', '3', NULL, 0, NULL, NULL, '2020-01-28 04:10:03'),
+(36, '17TE999', '大和　太郎', '$2y$10$zw3aDs4SVS5Zn2fzEsm82uZF3Bu.5FTcAWVGnSZy11PFnQJBXlJaq', '/uploads/images/user/user.jpg', 'yamatotaro@gmail.com', '丹野研究室', '3', NULL, NULL, NULL, NULL, NULL),
+(37, '17TE888', '川口　みつき', '$2y$10$MH1DJI/j6PS2nFWKYdLg6uoRbwKLjUtk4Ewoe5JqXU.cM61Y.1TE2', '/uploads/images/user/_1566915445.jpg', 'kawaguchimitsuki@gmail.com', '無し', '1年', NULL, NULL, NULL, NULL, NULL),
+(47, '11TE111', 'Tèo', '$2y$10$km581n/n6VTFr8KUm/xfM.C9v36fo0Vxc0xkE2DLCcAIahdrDRer6', '/uploads/images/user/_1579345019.jfif', 'tao@gmail.com', '研究室選択', '1', NULL, NULL, NULL, '2020-01-21 03:18:40', '2020-01-21 03:18:40'),
+(48, '16TE001', 'tarokunbede', '$2y$10$6EnrIwnwQqk/S4sJbStDu.yjVT0Ai1ZiXRhZYCNzoq8gYy.oIyeLi', '/uploads/images/user/_1575424069.jpg', 'taro@example.com', '渡辺研究室', '1', NULL, 0, NULL, '2020-01-22 05:16:48', '2020-01-22 06:17:48');
 
 -- --------------------------------------------------------
 
@@ -247,7 +236,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -260,13 +249,6 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`id`),
   ADD KEY `infor` (`information_id`),
   ADD KEY `student` (`students_id`);
-
---
--- Indexes for table `company_images`
---
-ALTER TABLE `company_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_company_image` (`infor_id`);
 
 --
 -- Indexes for table `information`
@@ -289,12 +271,18 @@ ALTER TABLE `sermina`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD UNIQUE KEY `sessions_id_unique` (`id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `student_code` (`student_code`),
-  ADD UNIQUE KEY `students_student_code_unique` (`student_code`);
+  ADD UNIQUE KEY `students_student_code_unique` (`student_code`),
+  ADD UNIQUE KEY `student_code` (`student_code`);
 
 --
 -- Indexes for table `users`
@@ -310,25 +298,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
-
---
--- AUTO_INCREMENT for table `company_images`
---
-ALTER TABLE `company_images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `information`
 --
 ALTER TABLE `information`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sermina`
@@ -340,7 +322,7 @@ ALTER TABLE `sermina`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `users`

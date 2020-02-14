@@ -124,9 +124,11 @@
                         人気No{{$loop->index + 1}}
                     </div>
                     <div class="thumbnail product-box">
+                        <a href="{{$rank->url}}" target="_blank">
                         <div class="product-images" style="background-image:url({{asset($rank->logo)}});">
-                            <a href="{{$rank->url}}" target="_blank"></a>
+                           
                         </div>
+                         </a>
                         <div class="caption">
                             <h3>{{$rank->company_name}}</h3>
                             <p>{{$rank->date}}</p>
