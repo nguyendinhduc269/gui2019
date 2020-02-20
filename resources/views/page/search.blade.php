@@ -11,7 +11,7 @@
         <div class="col-md-4 text-center col-sm-6 col-xs-6">
             <div class="thumbnail product-box">
               <a href="{{$item->url}}" target="_blank">
-              <div class="product-images" style="background-image:url({{$item->logo}});">
+              <div class="product-images" style="background-image:url({{asset($item->logo)}});">
               </div>
                 </a>
                 <div class="caption">

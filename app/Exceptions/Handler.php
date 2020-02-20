@@ -28,10 +28,11 @@ class Handler extends ExceptionHandler
     // protected function unauthenticated($request, AuthenticationException $exception)
     // {
     //     if ($request->expectsJson()) {
-    //         return response()->json(['error' => 'Unauthenticated.'], 401);
+    //         return response()->json(['message' => $exception->getMessage()], 401);
     //     }
+        
 
-    //     return redirect()->guest('/');
+    //     return redirect()->guest(route('login', ['account' => $request->route('account')]));
     // }
 
     /**
@@ -64,6 +65,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            return redirect()->route('login');
+        }
         return parent::render($request, $exception);
     }
 }

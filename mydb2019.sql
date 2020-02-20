@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2020 at 04:49 AM
+-- Generation Time: Feb 19, 2020 at 07:13 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -45,7 +45,6 @@ INSERT INTO `book` (`id`, `information_id`, `students_id`, `created_at`, `update
 (108, 20, 41, '2019-10-20 16:35:44', '2019-10-20 16:35:44'),
 (109, 19, 41, '2019-10-20 16:35:53', '2019-10-20 16:35:53'),
 (110, 23, 41, '2019-10-20 16:35:59', '2019-10-20 16:35:59'),
-(111, 23, 32, '2019-11-26 20:50:28', '2019-11-26 20:50:28'),
 (112, 23, 35, '2019-11-26 20:50:38', '2019-11-26 20:50:38'),
 (113, 42, 32, '2020-01-04 09:26:22', '2020-01-04 09:26:22'),
 (114, 47, 32, '2020-01-04 09:26:39', '2020-01-04 09:26:39'),
@@ -89,7 +88,7 @@ CREATE TABLE `information` (
 --
 
 INSERT INTO `information` (`id`, `location_info`, `date`, `company_name`, `info`, `written_test`, `written_test_content`, `interview`, `industry`, `country`, `recruited_occupation`, `qualification`, `age_limit`, `grade`, `graduate`, `condidate`, `job_vote`, `part_time_job`, `intership`, `logo`, `url`, `created_at`, `updated_at`) VALUES
-(19, '111', '2018-02-23', '第一工業大学', '第一工業大学の説明', '有り', 'SPI検査', '学校で行います', '学校', NULL, '教師', 'N1', NULL, '4年生', '無し', '無し', '', '無し', '不可', '/uploads/images/logo/_1572402766.jpg', 'http://ueno.daiichi-koudai.ac.jp/', NULL, '2019-11-26 20:04:44'),
+(19, '111', '2021-02-27', '第一工業大学', '第一工業大学の説明', '有り', 'SPI検査', '学校で行います', '学校', NULL, '教師', 'N1', NULL, '4年生', '無し', '無し', '', '無し', '不可', '/uploads/images/logo/_1572402766.jpg', 'http://ueno.daiichi-koudai.ac.jp/', NULL, '2020-02-13 19:14:36'),
 (20, '444', '2016-12-20', 'LABI', 'LABIの説明', '不明', 'SPI検査', '学校で行い', NULL, '特に無し', '販売', 'N2以上', NULL, '4年生', '無し', '無し', '', '有り', '不可', '/uploads/images/logo/labi_1572403366.jpg', 'http://www.yamadalabi.com/', NULL, '2019-11-26 20:05:16'),
 (21, '555', '2018-12-20', '東芝株式会社', '東芝株式会社の説明', '有り', '不明', '会社で第一次', NULL, NULL, 'SE', NULL, NULL, '4年生', '無し', '無し', '', '無し', '相談による', '/uploads/images/logo/_1572403388.png', 'https://www.toshiba.co.jp/', NULL, '2019-11-26 20:06:52'),
 (23, '777', '2017-06-08', 'ドンキホーテ', 'ドンキホーテの説明', '不明', '無し', NULL, '営業', '中国', NULL, 'N1', '28まで', '4年生', '有り', '無し', '', '有り', '相談による', '/uploads/images/logo/_1572403572.png', 'https://www.donki.com/', NULL, '2019-11-26 20:07:36'),
@@ -187,9 +186,12 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('G4T0SksCWba2VlZUQvZCzwgkxRi1yfBragMEfIBK', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNXlGUUR0a05HSXFYaUViQVJNMk9ZUzRpQlBYTk04ZGp5dXZzeHhncSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vbG9jYWxob3N0L2d1aTIwMTkvcHVibGljIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzI7fQ==', 1580963640),
-('oUXsPVzmZ3ppRtY7KboMvZgKHgFSQMooO4ObNTN6', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSzRUV1VLMmpLMGg0STVjY1c5ODlIT0o1am1na0k2Qng3RTR3WjNLYiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWM/cGFnZT0xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MzI7fQ==', 1581652149),
-('pqHIgDdj4wrXxiSbidkN9XPzI7tvWsYs49o1O9HS', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiek91b093d0NIUGRXcG4wNDdzOGpkUXdUakRvWWFOeVZqdkIzc2xCYyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM5OiJodHRwOi8vbG9jYWxob3N0L2d1aTIwMTkvcHVibGljL3Byb2ZpbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1580964050);
+('7tQh4e3FJxgTr1tug2STNIXTgBgvZ4fNuBB0BBuY', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaGFwWjRxUTlCTTd6eU1oR2pPUUhYT05qU3REWTNrdGFaQ09QSWlmeSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWMvYWRtaW4iO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1582082236),
+('eQ5EqFKjwMliK6hMkldydsAWO8ZkLdiPhCfVuAQS', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTm91UnVxZW5rb0oxTHBpYjlqZlhwMUxqQzBTUm5zbGxiRGViWlNHbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWMvcHJvZmlsZSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjMyO30=', 1582081948),
+('LlrSU6UvDwE0Hs8JARh294XwOrIY3ipHb7UiRPa0', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVlF6bG5GN2FzWmZKMlZhQnp0OWNId2RHdXdWeUZhV2loUm5YZ1VJVCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWMvcHJvZmlsZSI7fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1582081373),
+('N0AhWhfvDEhlZZbeQYSvBi5KpEkuaet2bAaQrhrI', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUkhJTDVVR3E1dDRaWkxNYmtrb1dkSzBrREdmRXFIRHd3ZEVGVWRyTCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWMiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1582085618),
+('WeUdrihEUEu4eHfzfQtoYQ4zdf1o8wUdtf8dMvTT', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiNTh6a1diMDZrSXFFcmd3Y2pzcEVoRVVyUzY3bGtHWk9vUjVyOGRYcyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1582081612),
+('Z5JFpd4cGpywNBfv2I3tI5fLRQH7dpeIeZjbZAIG', 32, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaGk4QjR1dTRBTHVqb2VMaWlFRXVvR1ZORjJoNDAzMk9EaWZqRzRJRCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3QvZ3VpMjAxOS9wdWJsaWMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTozMjt9', 1582086513);
 
 -- --------------------------------------------------------
 
@@ -224,7 +226,8 @@ INSERT INTO `students` (`id`, `student_code`, `name`, `password`, `picture`, `em
 (36, '17TE999', '大和　太郎', '$2y$10$zw3aDs4SVS5Zn2fzEsm82uZF3Bu.5FTcAWVGnSZy11PFnQJBXlJaq', '/uploads/images/user/user.jpg', 'yamatotaro@gmail.com', '丹野研究室', '3', NULL, NULL, NULL, NULL, NULL),
 (37, '17TE888', '川口　みつき', '$2y$10$MH1DJI/j6PS2nFWKYdLg6uoRbwKLjUtk4Ewoe5JqXU.cM61Y.1TE2', '/uploads/images/user/_1566915445.jpg', 'kawaguchimitsuki@gmail.com', '無し', '1年', NULL, NULL, NULL, NULL, NULL),
 (47, '11TE111', 'Tèo', '$2y$10$km581n/n6VTFr8KUm/xfM.C9v36fo0Vxc0xkE2DLCcAIahdrDRer6', '/uploads/images/user/_1579345019.jfif', 'tao@gmail.com', '研究室選択', '1', NULL, NULL, NULL, '2020-01-21 03:18:40', '2020-01-21 03:18:40'),
-(48, '16TE001', 'tarokunbede', '$2y$10$6EnrIwnwQqk/S4sJbStDu.yjVT0Ai1ZiXRhZYCNzoq8gYy.oIyeLi', '/uploads/images/user/_1575424069.jpg', 'taro@example.com', '渡辺研究室', '1', NULL, 0, NULL, '2020-01-22 05:16:48', '2020-01-22 06:17:48');
+(48, '16TE001', 'tarokunbede', '$2y$10$6EnrIwnwQqk/S4sJbStDu.yjVT0Ai1ZiXRhZYCNzoq8gYy.oIyeLi', '/uploads/images/user/_1575424069.jpg', 'taro@example.com', '渡辺研究室', '1', NULL, 0, NULL, '2020-01-22 05:16:48', '2020-01-22 06:17:48'),
+(49, '19TE999', 'Luffy', '$2y$10$OMcu8GbmD3K6o3GNEkdI5O2YUAB7hIcuYQo.emsMLGrodqyV5jRaa', '/uploads/images/user/nguyen_1581904252.jpeg', 'nguyen@example.com', '渡辺研究室', '1', NULL, NULL, NULL, '2020-02-16 16:49:32', '2020-02-16 16:51:07');
 
 -- --------------------------------------------------------
 
@@ -298,7 +301,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
 -- AUTO_INCREMENT for table `information`
@@ -322,7 +325,7 @@ ALTER TABLE `sermina`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users`
